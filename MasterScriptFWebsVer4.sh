@@ -29,6 +29,13 @@ main()
 				break
 			
 			elif [ $Update = "N" ] || [ $Update = "n" ]; then 
+			
+				apt-get install jp2a -y #This is going to help load the main banner for my program overall
+
+				cd /home/kali/Downloads
+				git clone https://github.com/FutabaWebs/Futaba_Webs_Banner.git 
+				jp2a /home/kali/Desktop/Futaba_Webs_Banner/heros.png #This is going to load up our main banner so it shows to the end user
+
 				
 				clear
 				
