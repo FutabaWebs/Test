@@ -1,17 +1,52 @@
-MasterScriptFWebsVer4#FINAL VERSION
+#MasterScriptFWebsVer4 -> FINAL VERSION
+
+#This is the main function of the program that will overall run the entire script. 
 main()
 {
 	
 	clear
 	
 	read -p "Are online? Connect first then hit enter!" p
-	
+
 	clear
-	
+
+	while true
+		do 
+			echo "Would you like to update the system (Y/n?) If you would like to see the main banner for the program you need to make sure it's updated so the banner will show and install itself!"
+			echo "" 
+			
+			read -p "" Update
+			
+			if [ $Update = "Y" ] || [ $Update = "y" ]; then 
+			
+				apt-get update -y 
+				apt-get install jp2a -y #This is going to help load the main banner for my program overall
+
+				cd /home/kali/Downloads
+				git clone https://github.com/FutabaWebs/Futaba_Webs_Banner.git 
+				jp2a /home/kali/Desktop/Futaba_Webs_Banner/heros.png #This is going to load up our main banner so it shows to the end user
+
+				break
+			
+			elif [ $Update = "N" ] || [ $Update = "n" ]; then 
+				
+				clear
+				
+				break
+			
+			fi
+		
+		done
+		
 
   while true  
   do 
-  
+
+	jp2a /home/kali/Desktop/Futaba_Webs_Banner/heros.png #This is going to load up our main banner so it shows to the end user
+	echo ""
+	echo ""
+	echo ""
+
   	echo "What would you like to install?"
   	echo ""
   	
@@ -25,6 +60,10 @@ main()
   	echo "NEWS: -> Some of the input has been made a bit cleaner and easier to tell where the cursor is for whenn you need to provide input in the program"
   	echo "NEWS: -> The program now has less hick ups when performing installs, preventing the end user from having to enter yes too frequently" 
   	echo "NEWS: -> The program is now able to install any and all forms of python modules via the pip installer for easy python3 programming setup"
+	echo ""
+	echo "NEWS: -> The following tools have been added to the program: jp2a, nodejs, inviteflood, dnsspoof, maltego, p0f, amap, rkhunter, lynis, cge.pl,"
+	echo "oscaner, sfuzz, zzuf, hostapd, wifiphisher, wifi-honey, redfang, bluelog, parsero, rtgen, ltrace, strace"
+	echo ""
   	
   	echo "0 -> Exit"
   	echo "1 -> Basic Install"
@@ -50,6 +89,7 @@ main()
 	if [ $Selection = "0" ]; then 
 	
 		echo "Exiting the program now"
+		clear
 		exit
 		
 		
@@ -57,10 +97,6 @@ main()
 
 ####################################### OPTION 1 Basic Install
 	elif [ $Selection = "1" ]; then 
-	
-		clear
-		
-		apt-get update -y 
 		
 		clear
 		
@@ -99,7 +135,6 @@ main()
 		apt-get install btscanner -y
 		apt-get install emailharvester -y 
 		apt-get install sendmail -y
-		apt --fix-broken install -y
 		apt-get install default-jre -y 
 		apt-get install openjdk-17-jdk -y
 		
@@ -110,7 +145,32 @@ main()
 		
 		
 		apt-get install tor -y
-		
+
+		apt-get install seahorse -y #This is going to install a password manager and updater in our linux system
+		apt-get install nodejs -y #This is going to allow us to work with nodejs programs
+		apt-get install inviteflood -y #This is going to allow us to flood the SIP rpotocol
+		apt-get install dnsspoof -y #This is going to allow us to sniff out network traffic data as the main gateway 
+		apt-get install maltego -y #This allow us to utilize various PI search queires through a main GUI interface
+		apt-get install p0f -y  #This is used for passive recon against web server applications to stay more anonymous than nmap
+		apt-get install amap -y #This is a more service scanning oriented to to discover the pinpoint services that are running on a system which might come up a bit vague compared to nmap
+		apt-get install rkhunter -y #This allow us to check if ther ehas been a rootkit installed on the system
+		apt-get install lynis -y #This is used to run a manual vulnerabiltiy chekc against either a local system or a rmeoe system via an executable we can pipe over to the target remotely  
+		apt-get install cisco-global-exploiter -y #This is used to check cisco devices we locate on a etwork for any and all types of vulnerabilties 
+		apt-get install oscanner -y # This allow us to scan against a target system and check whether or not it is running an oracle based database on it as well as if the databse runing on it has any vulnerbailtiies of i'ts own
+		apt-get install sfuzz -y #This allows us to scan for bugs that might exist in a program
+		apt-get install zzuf -y #This is used n order to test and pipe input for fuzzing into programs for bug hunting/applicaiton penetration testing
+		apt-get install hostapd -y #This allows us to create out own access point on our NIC card that operates wirelessly
+		apt-get install wifiphisher -y #This is going to allow us to set up jammming exploits on access points
+		apt-get install wifi-honey -y #This is a network monitoring tool for a honey pot in order to track attack patterns on a network, as well as monitor client activity on the network
+		apt-get install redfang -y #This allows us to blueborne bluetooth devices even if they aren't in discovery mode
+		apt-get install bluelog -y #This is going to allow us to both scan for bluetooth devices, as well as keep a genral log of our mainfindings automatically apt-get install parsero #This program is used to fetch the robot.txt file from a web application
+		apt-get install rtgen -y #This allows us to generate rainbow tabels for faster password cracking (REQUIRES DISK USAGE/SPEED/SPACE)
+		apt-get install ltrace -y #This is goinng to allow us to trace the function calls on a binary level within other programs THIS IS FOR LIBRARY FUNCTION CALLS  WTHIN THE PROGRAM
+		apt-get install strace -y #This is goinng to allow us to trace the function calls on a binary level within other programs THIS IS FOR SYSTEM FUNCTION CALLS  WTHIN THE PROGRAM
+
+		#This is going to check and fix any and all broken installs on the system
+		apt --fix-broken install -y
+
 		clear
 		
 		while true
@@ -585,6 +645,8 @@ main()
 	git clone https://github.com/abhinavkavuri/PhoneInfoga
 	git clone https://github.com/r00t-3xp10it/venom
 	git clone https://github.com/exiftool/exiftool
+	git clone https://github.com/GDSSecurity/wifitap
+	git clone https://github.com/riverloopsec/killerbee
 	
 	cd /home/kali/Downloads/Anon-SMS && chmod +rwx Run.sh  && cd /home/kali/Downloads/
 	cd /home/kali/Downloads/dotdotpwn && chmod +rwx dotdotpwn.pl && cd /home/kali/Downloads/
@@ -595,6 +657,23 @@ main()
 	cd /home/kali/Downloads/PhoneInfoga && chmod +rwx * && cp config.example.py config.py && cd /home/kali/Downloads/
 	cd /home/kali/Downloads/venom && chmod +rwx venom.sh && cd /home/kali/Downloads/
 	cd /home/kali/Downloads/exiftool && chmod +rwx exiftool && cd /home/kali/Downloads/
+	cd /home/kali/Downloads/wifitap && chmod +rwx *
+
+	#This section is for installing and configuring the main KillerBee program
+	cd /usr/include
+	wget https://gist.github.com/ry/208354/archive/ba55a00d134b5f25ee82dd9e1a085ca0c247daaf.zip
+	unzip ba55a00d134b5f25ee82dd9e1a085ca0c247daaf.zip
+	rm ba55a00d134b5f25ee82dd9e1a085ca0c247daaf.zip
+	cd "208354-ba55a00d134b5f25ee82dd9e1a085ca0c247daaf"
+	mv gcrypt.h /usr/include
+	cd /usr/include 
+	rmdir "208354-ba55a00d134b5f25ee82dd9e1a085ca0c247daaf"
+
+	pip3 install python-dev-tools
+	pip3 install pygcrypt
+	pip3 install pyusb
+	pip3 install pycrypto
+	pip3 install pyserial
 	
 	
 	
@@ -620,6 +699,8 @@ main()
 		  	echo "7 -> PhoneInFoga (Phone Number LookUp Tool)"
 		  	echo "8 -> Venom (Payload Generation Tool)"
 		  	echo "9 -> ExifTool (Meta Data Extracton Tool)"
+			echo "10 -> WifiTap (Wifi Injection Tool"
+			echo "11 -> KillerBee (Zigbee tool anaylzer (Higher level bluetooth devices like smart homes))"
   
   			echo "" 
   			echo "" 
@@ -1228,6 +1309,165 @@ main()
 		  		done 
 		  	
 		  		
+		  	 
+
+			############ WifiTap
+		  	elif [ $Selection2 = "10" ]; then 
+		  	
+		  		while true 
+		  		do 
+					clear
+					
+		  			read -p "Do you have WifiTap installed Y/n? " Tool10
+		  			
+		  			if [ $Tool10 = "Y" ] || [ $Tool10 = "y" ]; then 
+						
+						cd /home/kali/Downloads/wifitap && chmod +rwx * 
+						
+						break
+			
+					elif [ $Tool10 = "N" ] || [ $Tool10 = "n" ]; then 
+					
+						cd /home/kali/Downloads/
+						git clone https://github.com/GDSSecurity/wifitap
+						cd /home/kali/Downloads/wifitap && chmod +rwx *
+
+						break
+			
+					fi
+		  			
+		  		
+		  		done 
+		  	
+
+		  	
+		  		while true 
+		  		do 	
+		  			clear
+		  		
+		  			echo "WifiTap - Command list: Check the the folder at -> /home/kali/Downloads/wifitap (TOOL HAS MULTIPLE RUN OPTIONS YOU CAN RUN OUTSIDE OF THIS PROGRAM)"
+		  			echo "" 
+		  			
+		  			echo "man -> manual of the tool"
+		  			echo "exit -> exits the current tool script so you can select another"
+		  			echo "" 
+		  			
+		  			read -p "Please enter in the apporpriate command for the tool in order to launch it properlly now." WifiTap
+		  			
+		  			if [ $WifiTap = "man" ]; then 
+		  			
+		  				python3 wifitap.py # This will run the default tool, which will show all the options you can run the progrm with from the terminal in the main program
+		  				
+		  				read -p "Hit Enter when you've read enough from the end user manual of the tool" p
+		  				
+		  			elif [ $WifiTap = "exit" ]; then 
+		  				
+		  				echo "Exiting tool now"
+		  				cd /home/kali/Downloads/
+		  				
+		  				clear
+		  				break
+		  				
+		  			else 
+		  				
+		  				echo $WifiTap | python3 wifitap.py
+		  				read -p "Hit Enter when ready" p	  			
+		  			fi 
+		  		
+		  		done 
+		  	
+		  		
+		  	 
+
+
+			############ KillerBee
+		  	elif [ $Selection2 = "11" ]; then 
+		  	
+		  		while true 
+		  		do 
+					clear
+					
+		  			read -p "Do you have KillerBee installed Y/n? " Tool11
+		  			
+		  			if [ $Tool11 = "Y" ] || [ $Tool11 = "y" ]; then 
+						
+						cd /home/kali/Downloads/killerbee/killerbee && chmod +rwx * 
+						
+						break
+			
+					elif [ $Tool11 = "N" ] || [ $Tool11 = "n" ]; then 
+					
+						#This is going to run the main script to both setup and run the killer bee program
+
+						cd /usr/include
+						wget https://gist.github.com/ry/208354/archive/ba55a00d134b5f25ee82dd9e1a085ca0c247daaf.zip
+						unzip ba55a00d134b5f25ee82dd9e1a085ca0c247daaf.zip
+						rm ba55a00d134b5f25ee82dd9e1a085ca0c247daaf.zip
+						cd "208354-ba55a00d134b5f25ee82dd9e1a085ca0c247daaf"
+						mv gcrypt.h /usr/include
+						cd /usr/include 
+						rmdir "208354-ba55a00d134b5f25ee82dd9e1a085ca0c247daaf"
+						
+
+						cd /home/kali/Downloads/
+						git clone https://github.com/riverloopsec/killerbee
+						cd /home/kali/Downloads/killerbee
+
+						pip3 install python-dev-tools
+						pip3 install pygcrypt
+						pip3 install pyusb
+						pip3 install pycrypto
+						pip3 install pyserial
+
+						cd /home/kali/Downloads/killerbee/killerbee
+
+						
+
+						break
+			
+					fi
+		  			
+		  		
+		  		done 
+		  	
+
+		  	
+		  		while true 
+		  		do 	
+		  			clear
+		  		
+		  			echo "KillerBee - Command list:"
+		  			echo "" 
+		  			
+		  			echo "man -> manual of the tool"
+		  			echo "exit -> exits the current tool script so you can select another"
+		  			echo "" 
+		  			
+		  			read -p "Please enter in the apporpriate command for the tool in order to launch it properlly now." KillerBee
+		  			
+		  			if [ $KillerBee = "man" ]; then 
+		  			
+		  				python3 zigbeedecode.py # This will run the default tool, which will show all the options you can run the progrm with from the terminal in the main program
+		  				
+		  				read -p "Hit Enter when you've read enough from the end user manual of the tool" p
+		  				
+		  			elif [ $KillerBee = "exit" ]; then 
+		  				
+		  				echo "Exiting tool now"
+		  				cd /home/kali/Downloads/
+		  				
+		  				clear
+		  				break
+		  				
+		  			else 
+		  				
+		  				echo $KillerBee | python3 zigbeedecode.py
+		  				read -p "Hit Enter when ready" p	  			
+		  			fi 
+		  		
+		  		done 
+		  	
+		  		
 		  	fi 
 		  	
 		done 
@@ -1236,10 +1476,6 @@ main()
 	####################################### OPTION 10 Recommended Installs
 	elif [ $Selection = "10" ]; then 
 	 	
-	 	clear
-		
-		apt-get update -y 
-		
 		clear
 		
 		while true
@@ -1286,7 +1522,32 @@ main()
 		
 		
 		apt-get install tor -y
-		
+
+		apt-get install seahorse -y #This is going to install a password manager and updater in our linux system
+		apt-get install nodejs -y #This is going to allow us to work with nodejs programs
+		apt-get install inviteflood -y #This is going to allow us to flood the SIP rpotocol
+		apt-get install dnsspoof -y #This is going to allow us to sniff out network traffic data as the main gateway 
+		apt-get install maltego -y #This allow us to utilize various PI search queires through a main GUI interface
+		apt-get install p0f -y  #This is used for passive recon against web server applications to stay more anonymous than nmap
+		apt-get install amap -y #This is a more service scanning oriented to to discover the pinpoint services that are running on a system which might come up a bit vague compared to nmap
+		apt-get install rkhunter -y #This allow us to check if ther ehas been a rootkit installed on the system
+		apt-get install lynis -y #This is used to run a manual vulnerabiltiy chekc against either a local system or a rmeoe system via an executable we can pipe over to the target remotely  
+		apt-get install cisco-global-exploiter -y #This is used to check cisco devices we locate on a etwork for any and all types of vulnerabilties 
+		apt-get install oscanner -y # This allow us to scan against a target system and check whether or not it is running an oracle based database on it as well as if the databse runing on it has any vulnerbailtiies of i'ts own
+		apt-get install sfuzz -y #This allows us to scan for bugs that might exist in a program
+		apt-get install zzuf -y #This is used n order to test and pipe input for fuzzing into programs for bug hunting/applicaiton penetration testing
+		apt-get install hostapd -y #This allows us to create out own access point on our NIC card that operates wirelessly
+		apt-get install wifiphisher -y #This is going to allow us to set up jammming exploits on access points
+		apt-get install wifi-honey -y #This is a network monitoring tool for a honey pot in order to track attack patterns on a network, as well as monitor client activity on the network
+		apt-get install redfang -y #This allows us to blueborne bluetooth devices even if they aren't in discovery mode
+		apt-get install bluelog -y #This is going to allow us to both scan for bluetooth devices, as well as keep a genral log of our mainfindings automatically apt-get install parsero #This program is used to fetch the robot.txt file from a web application
+		apt-get install rtgen -y #This allows us to generate rainbow tabels for faster password cracking (REQUIRES DISK USAGE/SPEED/SPACE)
+		apt-get install ltrace -y #This is goinng to allow us to trace the function calls on a binary level within other programs THIS IS FOR LIBRARY FUNCTION CALLS  WTHIN THE PROGRAM
+		apt-get install strace -y #This is goinng to allow us to trace the function calls on a binary level within other programs THIS IS FOR SYSTEM FUNCTION CALLS  WTHIN THE PROGRAM
+
+		#This is going to check and fix any and all broken installs on the system
+		apt --fix-broken install -y
+
 		clear
 		
 		while true
@@ -1448,10 +1709,16 @@ main()
         apt-get install python3-pyqt5 #This allow you to make graphical user interfaces in Python3
         pip3 install arduino-python3 #This will give you the abiltiy to work with then ardunio breadboard library in python3
 
+#Else if the the wrong input is set into the code it will clear the main terminal window and then run the main output for the first section of the code again
+else 
 
+	clear
 
 fi #This is the end of the main if statement
+
 done #THis is the end of the main while loop statement
 }
+
+#This is going to call our main function that will control an drun the entire script 
 main 
 
