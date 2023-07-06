@@ -24,7 +24,6 @@ main()
 
 				cd /home/kali/Downloads
 				git clone https://github.com/FutabaWebs/Futaba_Webs_Banner.git 
-				jp2a /home/kali/Desktop/Futaba_Webs_Banner/heros.png #This is going to load up our main banner so it shows to the end user
 
 				break
 			
@@ -34,7 +33,6 @@ main()
 
 				cd /home/kali/Downloads
 				git clone https://github.com/FutabaWebs/Futaba_Webs_Banner.git 
-				jp2a /home/kali/Desktop/Futaba_Webs_Banner/heros.png #This is going to load up our main banner so it shows to the end user
 
 				
 				clear
